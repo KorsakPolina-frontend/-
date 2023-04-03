@@ -24,15 +24,52 @@ function createCard(cat, el = box) {
         const like = document.createElement("i");
     like.className = "fa-heart card__like";
     like.classList.add(cat.favorite ? "fa-solid" : "fa-regular");
+    like.addEventListener("click", e => {
+        e.stopPropagation();
+        if (cat.id) {
+            fetch(`${path}/update/${cat.id}` {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({favorite: !cat.favorite})
+            })
+            .then (res => {
+                if (res.status === 200) {
+                    like.classList.toggle("fa-solid");
+                    like.classList.toggle("fa-regular");
+                }
+            })
+        }
+    })
     card.append(like, name);
     if (cat.age >= 0) {
         const age = document.createElement("span");
         age.innerText = cat.age;
         card.append(age);
     }
+    //card.addEventListener("click", e=> {
+      //  deleteCard(cat.id, card)
+   // });
     el.append(card);
 }
+/* Удаление кота при нажатии на карточку
 
+function deleteCard(id) {
+    if (id) {
+        fetch(`${path}/delete/${id}`, {
+            method: "delete"
+        })
+        .then(res => {
+           // console.log(res);
+           // console.log(res.status);
+           if (res.ststus === 200) {
+            el.remove();
+           }
+        })
+    }
+}
+*/
 createCard(myCat);
 createCard(myCat2);
 
@@ -52,9 +89,20 @@ fetch(path + "/show")
             createCard(c, box)
         }
     })
-
+    
+let ids = [];
+fetch(path + "ids")
+    .then(res => res.json())
+    .then(data => {
+        console.log(data);
+        ids = [...data];
+        myCat.id = ids.length ? ids[ids.length - 1] + 1 : 1;
+        //addCat(myCat);
+    })
+    
     /*
-   добавление кота через Js
+   Добавление кота через Js
+
    myCat.id = 11
     function addCat(cat) {
         fetch(path + "/add", {
