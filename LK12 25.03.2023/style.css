@@ -4,10 +4,12 @@ body {
 }
 h3 {
     margin: 0;
+    color:#3a0119;
 }
 .container {
-    background-color: aqua;
+    background-color: rgba(168, 7, 85, 0.507);
     min-height: 100vh;
+    width: calc(100% - 60px);
     padding: 30px;
     box-sizing: border-box;
     display: grid;
@@ -16,7 +18,7 @@ h3 {
     gap: 30px;
 }
 .card {
-    background-color: silver;
+    background-color: rgb(168, 168, 168);
     padding: 15px;
     text-align: center;
     position: relative;
@@ -55,4 +57,84 @@ h3 {
 }
 .card h3 {
     margin-bottom: 5px;
+}
+.empty {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    left: 0;
+    width: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: calc(50% - 300px);
+}
+.empty::after {
+    content: "...";
+}
+.modal-container {
+    position: fixed;
+    background-color: rgba(63, 12, 40, 0.767);
+    backdrop-filter: blur(2px);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.modal {
+    background-color: rgb(255, 255, 255);
+    padding: 30px;
+    border-radius: 8px;
+    width: calc(100% - 60px);
+    max-width: 300px;
+    max-height: calc(100% - 60px);
+    position: relative;
+}
+.modal h2 {
+    margin-top: 0;
+    color: #3a0119;
+}
+.modal-close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.modal-close:hover {
+    color: rgb(212, 39, 8);
+
+}
+.modal form {
+    display: grid;
+    gap: 10px;
+}
+input, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    border: 1px solid rgb(118, 16, 128);
+    background-color: rgba(235, 171, 203, 0.61);
+}
+naw {
+    position: fixed;
+    box-sizing: border-box;
+    height: 100%;
+    background-color: rgba(168, 7, 85, 0.507);
+    right: 0;
+    padding: 20px;
+    display: grid;
+    gap: 20px;
+    align-content: center;
+
+}
+.control i {
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+.control i:hover {
+    color: rgb(157, 151, 196);
 }
