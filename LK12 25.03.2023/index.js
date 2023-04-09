@@ -79,7 +79,7 @@ fetch(path + "/show")
             createCard(c, box);
         }
     })
-
+/*
 let ids = [];
 fetch(path + "/ids")
     .then(res => res.json())
@@ -90,7 +90,7 @@ fetch(path + "/ids")
         addCat(myCat);
     })
     
-    
+  */  
    //Добавление кота через Js
 /*
       function addCat(cat) {
@@ -107,4 +107,4 @@ fetch(path + "/ids")
         }) 
     }
     */
-    addCat(myCat);    
+    //addCat(myCat);
