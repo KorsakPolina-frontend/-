@@ -55,6 +55,16 @@ h3 {
     color: crimson;
     cursor: pointer;
 }
+.card__trash {
+    position: absolute;
+    right: 8px;
+    bottom: 8px;
+    cursor: pointer;
+    color: black;
+}
+.card__trash:hover {
+    color:rgb(212, 39, 8);
+}
 .card h3 {
     margin-bottom: 5px;
 }

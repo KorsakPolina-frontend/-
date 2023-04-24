@@ -33,6 +33,8 @@ addForm.addEventListener("submit", e => {
             addForm.reset();//очистка формы от данных после нажатия добавить
             mdBox.style = null;//закрытие формы после нажатия добавить
             createCard(body);//добавление кота без перезагрузки страницы
+            cats.push(body);
+            localStorage.setItem("cats-data", JSON.stringify(cats));
         } else {
             return res.json();
         }
